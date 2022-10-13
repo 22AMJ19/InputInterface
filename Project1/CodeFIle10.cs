@@ -24,7 +24,8 @@ class MyClass : Form
         Text = "視線入力キーボード";
         BackColor = SystemColors.Window;
         Size = new Size(600, 630);
-        Font = new Font("", 40); ;
+        Font = new Font("", 40);
+        
         int count = 0;
         title_list = new string[12];
         url_list = new string[12];
@@ -39,9 +40,11 @@ class MyClass : Form
                 btn.BackColor = SystemColors.Control;
                 btn.Size = new Size(180, 100);
                 btn.Click += new EventHandler(btn_Click);
+                btn.KeyPress += new KeyPressEventHandler(MyClass_KeyPress);
                 count++;
             }
         }
+        
 
         btn16 = new Button();
         btn16.Parent = this;
@@ -50,6 +53,7 @@ class MyClass : Form
         btn16.BackColor = SystemColors.Control;
         btn16.Size = new Size(180, 100);
         btn16.Click += new EventHandler(btn_Click);
+        btn16.KeyPress += new KeyPressEventHandler(MyClass_KeyPress);
 
         btn17 = new Button();
         btn17.Parent = this;
@@ -58,6 +62,7 @@ class MyClass : Form
         btn17.BackColor = SystemColors.Control;
         btn17.Size = new Size(180, 100);
         btn17.Click += new EventHandler(btn_Click);
+        btn17.KeyPress += new KeyPressEventHandler(MyClass_KeyPress);
 
         btn18 = new Button();
         btn18.Parent = this;
@@ -66,6 +71,7 @@ class MyClass : Form
         btn18.BackColor = SystemColors.Control;
         btn18.Size = new Size(180, 100);
         btn18.Click += new EventHandler(btn_Click);
+        btn18.KeyPress += new KeyPressEventHandler(MyClass_KeyPress);
 
         btn19 = new Button();
         btn19.Parent = this;
@@ -74,6 +80,7 @@ class MyClass : Form
         btn19.BackColor = SystemColors.Control;
         btn19.Size = new Size(180, 100);
         btn19.Click += new EventHandler(btn_Click);
+        btn19.KeyPress += new KeyPressEventHandler(MyClass_KeyPress);
 
         btn20 = new Button();
         btn20.Parent = this;
@@ -82,6 +89,7 @@ class MyClass : Form
         btn20.BackColor = SystemColors.Control;
         btn20.Size = new Size(180, 100);
         btn20.Click += new EventHandler(btn_Click);
+        btn20.KeyPress += new KeyPressEventHandler(MyClass_KeyPress);
 
         btn21 = new Button();
         btn21.Parent = this;
@@ -90,6 +98,7 @@ class MyClass : Form
         btn21.BackColor = SystemColors.Control;
         btn21.Size = new Size(180, 100);
         btn21.Click += new EventHandler(btn_Click);
+        btn21.KeyPress += new KeyPressEventHandler(MyClass_KeyPress);
 
         btn16.Visible = false;
         btn17.Visible = false;
@@ -111,12 +120,39 @@ class MyClass : Form
                 btn.BackColor = SystemColors.Control;
                 btn.Size = new Size(180, 100);
                 btn.Click += new EventHandler(btn_Click);
+                btn.KeyPress += new KeyPressEventHandler(MyClass_KeyPress);
                 count++;
             }
         }
-        
         btn_Switching3(false);
     }
+    protected override bool ProcessDialogKey(Keys keyData)
+    {
+        switch (keyData)
+        {
+            case Keys.Down:
+            case Keys.Right:
+                this.SelectNextControl(
+                  this.ActiveControl, true, true, true, true);
+                break;
+            case Keys.Up:
+            case Keys.Left:
+                this.SelectNextControl(
+                  this.ActiveControl, false, true, true, true);
+                break;
+            default:
+                return base.ProcessDialogKey(keyData);
+                break;
+        }
+        return true;
+    }
+    
+    static void MyClass_KeyPress(object sender, KeyPressEventArgs e) {
+        
+        //Console.WriteLine("a");
+    }
+    
+
     void btn_Click(object sender, EventArgs e)
     {
         Button btn = (Button)sender;
@@ -273,6 +309,7 @@ class MyClass : Form
             Button btn = (Button)array_btn2[i];
             btn.Visible = b;
         }
+
     }
 
     void btn_Strset(String s1)
@@ -345,6 +382,7 @@ class MyClass : Form
 
         return remstr.Substring(0, length+1);
     }
+    
 }
 class Button03
 {
