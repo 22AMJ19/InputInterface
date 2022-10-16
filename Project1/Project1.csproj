@@ -68,7 +68,7 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CodeFile11.cs">
+    <Compile Include="CodeFile12.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MakeTrans.cs" />
