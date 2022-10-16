@@ -10,10 +10,10 @@ using System.Diagnostics;//ブラウザ起動
 
 class MyClass : Form
 {
-    enum StateTag { 
-        vowel,
-        consonant,
-        search
+    enum StateTag { //今どのボタンに居るかの列挙型
+        vowel,//母音あいうえお
+        consonant,//子音あかさたな
+        search//検索
     }
     string str, btn_st;
     string[] stArray = new string[] { "あ", "か", "さ", "た", "な", "は", "ま", "や", "ら", "小,゛,゜", "わ", "空白", "消", "漢字", "検索" };
@@ -203,7 +203,7 @@ class MyClass : Form
         return pos;
     }
 
-    void SetFocusedPos(int pos) {
+    void SetFocusedPos(int pos) {//渡された番号のボタンをフォーカスする
         switch (state_tag) {
             case StateTag.vowel:
                 ((Button)vowel_btns[pos]).Focus();
@@ -343,7 +343,7 @@ class MyClass : Form
         state_tag = tag;
         SetDefaultPos();
     }
-    void SetDefaultPos() {
+    void SetDefaultPos() {//デフォルトでフォーカスするボタン
         switch (state_tag) {
             case StateTag.vowel:
                 ((Button)vowel_btns[0]).Focus();
@@ -357,14 +357,14 @@ class MyClass : Form
         }
     }
 
-    void btn_Strset(String s1)
+    void btn_Strset(String s1)//ボタンに母音をセットする
     {
         for (int i = 0; i < 5; i++) {
             ((Button)vowel_btns[i]).Text = s1.Substring(i, 1);
         }
     }
 
-    void btn_Urlset()
+    void btn_Urlset()//検索画面にタイトルとurlをセットする
     {
         for (int i = 0; i < search_btns.Count - 3; i++)
         {
