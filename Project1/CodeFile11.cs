@@ -28,7 +28,7 @@ class MyClass : Form
     StateTag state_tag = StateTag.consonant;
     bool kanji_check = false;
     int row = 5, column = 3;
-    public MyClass()
+    public MyClass()//コンストラクタ
     {
         this.StartPosition = FormStartPosition.Manual; //起動位置
         this.Location = new Point(0, 0); //起動位置
@@ -78,11 +78,11 @@ class MyClass : Form
             btn.Visible = false;
         }
         ((Button)vowel_btns[5]).Text = "戻る";
-        state_tag = StateTag.consonant;
-        SetDefaultPos();
+        state_tag = StateTag.consonant;//必要ないはずだけど一応
+        SetDefaultPos();//なぜか最初に「な」のフォーカスができない
     }
 
-    protected override bool ProcessDialogKey(Keys keyData)
+    protected override bool ProcessDialogKey(Keys keyData)//十字キーでのボタン操作
     {
         int currentPos = GetFocusedPos();
         int nextPos = currentPos;
@@ -168,7 +168,7 @@ class MyClass : Form
         return true;
     }
 
-    int GetFocusedPos () {
+    int GetFocusedPos () {//今どのボタンにフォーカスしているかを取得する
         int pos = 0;
         switch (state_tag) {
             case StateTag.vowel:
@@ -218,7 +218,7 @@ class MyClass : Form
     }
 
 
-    void btn_Click(object sender, EventArgs e)
+    void btn_Click(object sender, EventArgs e)//ボタンをクリックした際の挙動
     {
         Button btn = (Button)sender;
         switch (state_tag){
@@ -320,7 +320,7 @@ class MyClass : Form
         Invalidate();
     }
 
-    void btn_Switching(StateTag tag)
+    void btn_Switching(StateTag tag)//ボタン表示の切り替え
     {
         switch (tag)
         {
