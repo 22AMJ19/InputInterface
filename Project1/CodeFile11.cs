@@ -15,14 +15,14 @@ class MyClass : Form
         consonant,//子音あかさたな
         search//検索
     }
-    string str, btn_st;
-    string[] stArray = new string[] { "あ", "か", "さ", "た", "な", "は", "ま", "や", "ら", "小,゛,゜", "わ", "空白", "消", "漢字", "検索" };
-    string[] akstn = new string[] { "あいうえお", "かきくけこ", "さしすせそ", "たちつてと", "なにぬねの", "はひふへほ", "まみむめも", "や　ゆ　よ", "らりるれろ" };
+    string str, btn_st;//str:表示、検索する文字 btn_st:追加する文字
+    string[] stArray = new string[] { "あ", "か", "さ", "た", "な", "は", "ま", "や", "ら", "小,゛,゜", "わ", "空白", "消", "漢字", "検索" };//consonant_btnsに表示する文字
+    string[] akstn = new string[] { "あいうえお", "かきくけこ", "さしすせそ", "たちつてと", "なにぬねの", "はひふへほ", "まみむめも", "や　ゆ　よ", "らりるれろ" };//bowel_btnsに表示する文字
     MakeTrans mt = new MakeTrans("あいうえおつやゆよかきくけこさしすせそたちってとはひふへほばびぶべぼぁぃぅぇぉゃゅょがぎぐげござじずぜぞだぢづでどぱぴぷぺぽ",
-                                 "ぁぃぅぇぉっゃゅょがぎぐげござじずぜぞだぢづでどばびぶべぼぱぴぷぺぽあいうえおやゆよかきくけこさしすせそたちつてとはひふへほ");
-    string[] title_list, url_list;
-    Point[] vowel_pos = { new Point(200,160), new Point(10,160), new Point(200, 50), new Point(390, 160), new Point(200, 270), new Point(10, 270)};
-    ArrayList vowel_btns = new ArrayList();
+                                 "ぁぃぅぇぉっゃゅょがぎぐげござじずぜぞだぢづでどばびぶべぼぱぴぷぺぽあいうえおやゆよかきくけこさしすせそたちつてとはひふへほ");//小゛゜で変換する文字
+    string[] title_list, url_list;//ウェブページのタイトルとurlを入れる配列
+    Point[] vowel_pos = { new Point(200,160), new Point(10,160), new Point(200, 50), new Point(390, 160), new Point(200, 270), new Point(10, 270)};//vowel_btnsを表示する場所
+    ArrayList vowel_btns = new ArrayList();//各ボタンを入れるArrayList
     ArrayList consonant_btns = new ArrayList();
     ArrayList search_btns = new ArrayList();
     StateTag state_tag = StateTag.consonant;
