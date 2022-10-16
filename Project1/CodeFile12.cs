@@ -82,6 +82,7 @@ class MyClass : Form
         ((Button)vowel_btns[5]).Text = "戻る";
 
         this.ActiveControl = (Button)consonant_btns[4];//最初に「な」にフォーカス
+        ((Button)consonant_btns[4]).BackColor = Color.Yellow;
 
         //state_tag = StateTag.consonant;//必要ないはずだけど一応
         //SetDefaultPos();//なぜか最初に「な」のフォーカスができない
@@ -133,6 +134,7 @@ class MyClass : Form
                         }
                         break;
                     default:
+                        //SetFocusedPos(currentPos);
                         return base.ProcessDialogKey(keyData);
                 }
                 break;
@@ -169,6 +171,7 @@ class MyClass : Form
                         Console.WriteLine(currentPos + "D" + nextPos);
                         break;
                     default:
+                        //SetFocusedPos(currentPos);
                         return base.ProcessDialogKey(keyData);
                 }
                 break;
@@ -192,6 +195,7 @@ class MyClass : Form
                     }
                     pos++;
                 }
+                ((Button)vowel_btns[pos]).BackColor = SystemColors.Control;
                 break;
             case StateTag.consonant:
                 foreach (Button btn in consonant_btns)
@@ -202,6 +206,7 @@ class MyClass : Form
                     }
                     pos++;
                 }
+                ((Button)consonant_btns[pos]).BackColor = SystemColors.Control;
                 break;
             case StateTag.search:
                 foreach (Button btn in search_btns)
@@ -212,23 +217,27 @@ class MyClass : Form
                     }
                     pos++;
                 }
+                ((Button)search_btns[pos]).BackColor = SystemColors.Control;
                 break;
         }
         return pos;
     }
 
     void SetFocusedPos(int pos)
-    {//渡された番号のボタンをフォーカスする
+    {//渡された番号のボタンをフォーカスし、色も付ける
         switch (state_tag)
         {
             case StateTag.vowel:
                 ((Button)vowel_btns[pos]).Focus();
+                ((Button)vowel_btns[pos]).BackColor = Color.Yellow;
                 break;
             case StateTag.consonant:
                 ((Button)consonant_btns[pos]).Focus();
+                ((Button)consonant_btns[pos]).BackColor = Color.Yellow;
                 break;
             case StateTag.search:
                 ((Button)search_btns[pos]).Focus();
+                ((Button)search_btns[pos]).BackColor = Color.Yellow;
                 break;
         }
     }
@@ -367,12 +376,15 @@ class MyClass : Form
         {
             case StateTag.vowel:
                 ((Button)vowel_btns[0]).Focus();
+                ((Button)vowel_btns[0]).BackColor = Color.Yellow;
                 break;
             case StateTag.consonant:
                 ((Button)consonant_btns[4]).Focus();
+                ((Button)consonant_btns[4]).BackColor = Color.Yellow;
                 break;
             case StateTag.search:
                 ((Button)search_btns[0]).Focus();
+                ((Button)search_btns[0]).BackColor = Color.Yellow;
                 break;
         }
     }
