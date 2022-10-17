@@ -284,7 +284,6 @@ class MyClass : Form
                     {
                         if (str.Length > 0)
                         {//(str != null || str.Length>0)ではだめ
-                            Console.WriteLine("ほげほげ");
                             btn_st = mt.Translate(str.Substring(str.Length - 1));
                             str = str.Remove(str.Length - 1);
                         }
@@ -316,6 +315,10 @@ class MyClass : Form
                     kanji_array = Ext.ToKanji(str);
                     for (int i = 0; i < 5; i++)
                     {
+                        if (((string)kanji_array[i]).Length>2)
+                        {
+                            ((Button)vowel_btns[i]).Font = new Font("", 20);
+                        }
                         ((Button)vowel_btns[i]).Text = kanji_array[i];
                     }
                     btn_Switching(StateTag.vowel);
@@ -403,6 +406,7 @@ class MyClass : Form
     {
         for (int i = 0; i < 5; i++)
         {
+            ((Button)vowel_btns[i]).Font = new Font("", 40);
             ((Button)vowel_btns[i]).Text = s1.Substring(i, 1);
         }
     }
@@ -415,7 +419,6 @@ class MyClass : Form
             btn.Font = new Font("", 14);
             btn.Text = title_list[i];
         }
-
     }
 
     protected override void OnPaint(PaintEventArgs e)
