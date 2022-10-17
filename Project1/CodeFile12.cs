@@ -280,8 +280,16 @@ class MyClass : Form
                 }
                 if (btn == (Button)consonant_btns[9])//小,゛,゜
                 {
-                    btn_st = mt.Translate(str.Substring(str.Length - 1));
-                    str = str.Remove(str.Length - 1);
+                    if (str != null)
+                    {
+                        if (str.Length > 0)
+                        {//(str != null || str.Length>0)ではだめ
+                            Console.WriteLine("ほげほげ");
+                            btn_st = mt.Translate(str.Substring(str.Length - 1));
+                            str = str.Remove(str.Length - 1);
+                        }
+                    }
+                    ((Button)consonant_btns[9]).BackColor = Color.Yellow;
                 }
                 else if (btn == (Button)consonant_btns[10])
                 {
@@ -291,6 +299,7 @@ class MyClass : Form
                 else if (btn == (Button)consonant_btns[11])//空白
                 {
                     btn_st = "　";
+                    ((Button)consonant_btns[11]).BackColor = Color.Yellow;
                 }
                 else if (btn == (Button)consonant_btns[12])
                 {//消
@@ -298,6 +307,7 @@ class MyClass : Form
                     {
                         str = str.Remove(str.Length - 1);
                     }
+                    ((Button)consonant_btns[12]).BackColor = Color.Yellow;
                 }
                 else if (btn == (Button)consonant_btns[13])
                 {//漢字
