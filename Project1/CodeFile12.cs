@@ -31,8 +31,9 @@ class MyClass : Form
     int row = 5, column = 3;
     public MyClass()//コンストラクタ
     {
+        int w = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
         this.StartPosition = FormStartPosition.Manual; //起動位置
-        this.Location = new Point(0, 0); //起動位置
+        this.Location = new Point(w-950, 0); //起動位置
         Text = "視線入力キーボード";
         BackColor = SystemColors.Window;
         Size = new Size(600, 630);
