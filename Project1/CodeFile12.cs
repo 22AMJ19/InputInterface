@@ -148,28 +148,24 @@ class MyClass : Form
                         {
                             nextPos = currentPos + column;
                         }
-                        Console.WriteLine(currentPos + "A" + nextPos);
                         break;
                     case Keys.Right:
                         if (currentPos % column != column - 1)
                         {
                             nextPos = currentPos + 1;
                         }
-                        Console.WriteLine(currentPos + "B" + nextPos);
                         break;
                     case Keys.Up:
                         if (currentPos >= column)
                         {
                             nextPos = currentPos - column;
                         }
-                        Console.WriteLine(currentPos + "C" + nextPos);
                         break;
                     case Keys.Left:
                         if (currentPos % column != 0)
                         {
                             nextPos = currentPos - 1;
                         }
-                        Console.WriteLine(currentPos + "D" + nextPos);
                         break;
                     default:
                         //SetFocusedPos(currentPos);
