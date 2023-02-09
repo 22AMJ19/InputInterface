@@ -254,6 +254,7 @@ class MyClass : Form
                         btn_Switching(StateTag.consonant);
                         if (kanji_check)
                         {
+                            str = RemoveRight(str, "　");
                             btn_st += "　";
                             kanji_check = false;
                         }
@@ -263,6 +264,7 @@ class MyClass : Form
                 if (btn == (Button)vowel_btns[5])
                 {
                     btn_Switching(StateTag.consonant);
+                    kanji_check = false;
                 }
                 break;
             case StateTag.consonant:
@@ -310,16 +312,22 @@ class MyClass : Form
                     string[] kanji_array = new string[5];
 
                     kanji_array = Ext.ToKanji(str);
-                    for (int i = 0; i < 5; i++)
+                    for (int i = 0; i < kanji_array.Length; i++)
                     {
-                        if (((string)kanji_array[i]).Length>2)
+                        if (!(((string)kanji_array[i]) is null))
                         {
-                            ((Button)vowel_btns[i]).Font = new Font("", 20);
+                            if (((string)kanji_array[i]).Length > 2)
+                            {
+                                ((Button)vowel_btns[i]).Font = new Font("", 20);
+                            }
+                            ((Button)vowel_btns[i]).Text = kanji_array[i];
                         }
-                        ((Button)vowel_btns[i]).Text = kanji_array[i];
+                        else {
+                            ((Button)vowel_btns[i]).Text = " ";
+                        }
                     }
                     btn_Switching(StateTag.vowel);
-                    str = RemoveRight(str, "　");
+                    //str = RemoveRight(str, "　");
                     kanji_check = true;
                 }
                 else if (btn == (Button)consonant_btns[14])

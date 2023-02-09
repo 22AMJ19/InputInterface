@@ -35,6 +35,7 @@ public static class Ext
     {
         StringBuilder kanji = new StringBuilder();
         JArray jar = JArray.Parse(hiragana.GetForConvWithGoogleTransliterate());
+        kanji_array = new string[5];
 
         foreach (JToken jt in jar)
         {
