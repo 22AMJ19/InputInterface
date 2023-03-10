@@ -311,7 +311,7 @@ class MyClass : Form
                 {//漢字
                     string[] kanji_array = new string[5];
 
-                    kanji_array = Ext.ToKanji(str);
+                    kanji_array = KanjiTranslator.ToKanji(str);
                     for (int i = 0; i < kanji_array.Length; i++)
                     {
                         if (!(((string)kanji_array[i]) is null))

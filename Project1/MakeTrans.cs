@@ -7,9 +7,6 @@ public class MakeTrans
     public MakeTrans(string intab, string outab)
     {
         d = Enumerable.Range(0, intab.Length).ToDictionary(i => intab[i], i => outab[i]);
-        //d = new Dictionary<char, char>();
-        //for (int i = 0; i < intab.Length; i++)
-        //    d[intab[i]] = outab[i];
     }
     public string Translate(string src)
     {
