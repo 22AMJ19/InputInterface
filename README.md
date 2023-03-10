@@ -9,5 +9,6 @@
 - AngleSharp v0.17.1
 
 ## 使用方法
-
-[視線入力プログラム](https://github.com/22AMJ19/EyeGazeInput.git)で子プロセスとして呼び出されるため、操作方法はそちらに記載する。
+1. Visual Studioでソリューションを読み込む。
+2. ビルドする。
+3. [視線入力プログラム](https://github.com/22AMJ19/EyeGazeInput.git)で子プロセスとして呼び出されるため、操作方法はそちらに記載する。
