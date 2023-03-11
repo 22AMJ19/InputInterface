@@ -85,8 +85,6 @@ class MyClass : Form
         this.ActiveControl = (Button)consonant_btns[4];//最初に「な」にフォーカス
         ((Button)consonant_btns[4]).BackColor = Color.Yellow;
 
-        //state_tag = StateTag.consonant;//必要ないはずだけど一応
-        //SetDefaultPos();//なぜか最初に「な」のフォーカスができない
     }
 
     protected override bool ProcessDialogKey(Keys keyData)//十字キーでのボタン操作
@@ -282,7 +280,7 @@ class MyClass : Form
                     if (str != null)
                     {
                         if (str.Length > 0)
-                        {//(str != null || str.Length>0)ではだめ
+                        {
                             btn_st = mt.Translate(str.Substring(str.Length - 1));
                             str = str.Remove(str.Length - 1);
                         }
@@ -435,7 +433,7 @@ class MyClass : Form
     void get_Search(string word, int n)
     {
         //HTML取得
-        int page = 10 * n; //ページ数nのところを変更すると変わるよ
+        int page = 10 * n; //ページ数nのところを変更すると変わる
         string start = "&start=" + page.ToString();
         string url = "https://www.google.com/search?q=" + word + start;
         HttpClient client = new HttpClient();
@@ -464,9 +462,7 @@ class MyClass : Form
             }
         }
     }
-    // <param name="remstr">対象文字列</param>
-    // <param name="removeStr">指定文字列</param>
-    // <returns>対象文字列から指定文字列を削除した文字列</returns>
+    
     public static string RemoveRight(string remstr, string removeStr)
     {
         var length = remstr.LastIndexOf(removeStr);
@@ -479,7 +475,7 @@ class MyClass : Form
     }
 
 }
-class Button03
+class InputInterface
 {
     public static void Main()
     {
