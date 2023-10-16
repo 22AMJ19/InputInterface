@@ -33,7 +33,7 @@ class MyClass : Form
     {
         int w = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
         this.StartPosition = FormStartPosition.Manual; //起動位置
-        this.Location = new Point(w-950, 0); //起動位置
+        this.Location = new Point(w-(w/2), 0); //起動位置 w-950
         Text = "視線入力キーボード";
         BackColor = SystemColors.Window;
         Size = new Size(600, 630);
@@ -348,7 +348,8 @@ class MyClass : Form
                 {
                     if (btn == (Button)search_btns[i])
                     {
-                        System.Diagnostics.Process.Start(url_list[i]);
+                        System.Diagnostics.Process.Start(url_list[i]); //サイトを開く
+                        this.Close();//アプリの終了
                     }
                 }
                 if (btn == (Button)search_btns[14])
@@ -481,8 +482,12 @@ class MyClass : Form
 }
 class Button03
 {
-    public static void Main()
+    public static void Main(string[] args)
     {
+        for (int i = 0; i < args.Length; i++)
+        {
+            Console.WriteLine(args[i]);
+        }
         Application.Run(new MyClass());
     }
 }
