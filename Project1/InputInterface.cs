@@ -33,7 +33,7 @@ class MyClass : Form
     {
         int w = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
         this.StartPosition = FormStartPosition.Manual; //起動位置
-        this.Location = new Point(w-(w/2), 0); //起動位置 w-950
+        this.Location = new Point(w-(w/2)-300, 0); //起動位置 w-950
         Text = "視線入力キーボード";
         BackColor = SystemColors.Window;
         Size = new Size(600, 630);
@@ -480,10 +480,7 @@ class InputInterface
 {
     public static void Main(string[] args)
     {
-        for (int i = 0; i < args.Length; i++)
-        {
-            Console.WriteLine(args[i]);
-        }
+        Console.WriteLine(args[0]);
         Application.Run(new MyClass());
     }
 }
