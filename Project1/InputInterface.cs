@@ -17,7 +17,7 @@ class MyClass : Form
         consonant,//子音あかさたな
         search//検索
     }
-    string EYEGAZE_PATH = @"C:\Users\abela\PythonLab\interface.txt";
+    string eyegaze_path = @"C:\Users\abela\PythonLab\interface.txt";
     string str, btn_st;//str:表示、検索する文字 btn_st:追加する文字
     string[] stArray = new string[] { "あ", "か", "さ", "た", "な", "は", "ま", "や", "ら", "小,゛,゜", "わ", "空白", "消", "漢字", "検索" };//consonant_btnsに表示する文字
     string[] akstn = new string[] { "あいうえお", "かきくけこ", "さしすせそ", "たちつてと", "なにぬねの", "はひふへほ", "まみむめも", "や　ゆ　よ", "らりるれろ" };//bowel_btnsに表示する文字
@@ -31,7 +31,7 @@ class MyClass : Form
     StateTag state_tag = StateTag.consonant;
     bool kanji_check = false;
     int row = 5, column = 3;
-    public MyClass(string flag)//コンストラクタ
+    public MyClass()//string flag)//コンストラクタ
     {
         int w = System.Windows.Forms.Screen.PrimaryScreen.Bounds.Width;
         this.StartPosition = FormStartPosition.Manual; //起動位置
@@ -350,7 +350,7 @@ class MyClass : Form
                     {
                         System.Diagnostics.Process.Start(url_list[i]); //サイトを開く
                         this.Close();//アプリの終了
-                        using (FileStream fs = File.Create(EYEGAZE_PATH)) ;
+                        using (FileStream fs = File.Create(eyegaze_path)) ;
                     }
                 }
                 if (btn == (Button)search_btns[14])
@@ -481,9 +481,9 @@ class MyClass : Form
 }
 class InputInterface
 {
-    public static void Main(string[] args)
+    public static void Main()//string[] args)
     {
-        Console.WriteLine(args[0]);
-        Application.Run(new MyClass(args[0]));
+        //Console.WriteLine(args[0]);
+        Application.Run(new MyClass());//args[0]));
     }
 }
